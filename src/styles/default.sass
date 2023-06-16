@@ -1,0 +1,36 @@
+@use './reset.sass'
+@use './animations.sass'
+@use './pallete.sass' as color
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Russo+One&display=swap')
+
+*
+	box-sizing: border-box
+	color: color.$text
+	font-family: 'Poppins', sans-serif
+
+a
+	text-decoration: none
+
+h1, h2, h3, h4, h5, h6
+	font-family: 'Russo One', sans-serif
+
+body
+	background: color.$bg-primary
+	max-width: 100vw
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill
+	caret-color: color.$text
+	transition: background-color 5000s ease-in-out 0s
+	-webkit-text-fill-color: color.$text
+	-webkit-box-shadow: 0 0 0px 1000px color.$bg-primary inset
+
+body::-webkit-scrollbar
+	width: 1em
+body::-webkit-scrollbar-track
+	background: transparent
+body::-webkit-scrollbar-thumb
+	background: linear-gradient(0deg, rgb(199, 107, 0) 0%, rgb(245, 161, 62) 100%)
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+	border-radius: .5rem
