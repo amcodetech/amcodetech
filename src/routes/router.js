@@ -7,7 +7,7 @@ import AppContact from '../views/AppContact.vue'
 const routes = [
 	{
 		path: '/',
-		name: 'Home',
+		name: 'home',
 		component: AppHome,
 	},
 	{

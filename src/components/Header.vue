@@ -5,10 +5,9 @@
 			<span class="header__brand__name">AM Code Tech</span>
 		</h1>
 		<nav class="header__nav">
-			<router-link class="header__nav__item" to="/">HOME</router-link>
-			<router-link class="header__nav__item" to="/sobre">SOBRE</router-link>
-			<router-link class="header__nav__item" to="/projetos">PROJETOS</router-link>
-			<router-link class="header__nav__item" to="/contato">CONTATO</router-link>
+			<router-link v-for="item in menu" :key='item.title' :class="item.class" :to="item.path">
+				{{ item.title }}
+			</router-link>
 		</nav>
 		<div class="header__social">
 			<a href="https://www.github.com/andre-menezes" target="_blank" class="header__social__brand"><github-logo /></a>
@@ -32,13 +31,26 @@ export default {
 	},
 	data() {
 		return {
-			currentMenu: 'home'
+			currentPage: 'home',
+			menu: [
+				{ title: 'home', path: '/', class: ['header__nav__item', 'selected'] },
+				{ title: 'sobre', path: '/sobre', class: ['header__nav__item'] },
+				{ title: 'projetos', path: '/projetos', class: ['header__nav__item'] },
+				{ title: 'contato', path: '/contato', class: ['header__nav__item'] }
+			]
 		}
 	},
-	methods: {
-		menuSelected(e) {
-			this.currentMenu = e.target.id
-		},
+	created() {
+		this.$router.afterEach((to, from) => {
+			this.currentPage = to.name;
+			this.menu.map(item => {
+				if (item.title === to.name) {
+					item.class.push('selected')
+				} else {
+					item.class = ['header__nav__item']
+				}
+			})
+		});
 	},
 }
 </script>
@@ -80,6 +92,8 @@ export default {
 			font-size: 1rem
 			font-family: "Russo One", sans-serif
 			padding: 0 .3rem
+			text-transform: uppercase
+			text-shadow: 2px 2px 2px black
 
 			&:hover
 				position: relative
@@ -112,9 +126,7 @@ export default {
 			justify-content: center
 
 .selected
-	background-image: linear-gradient(to right, color.$orange-high, color.$orange-low)
-	-webkit-background-clip: text
-	-webkit-text-fill-color: transparent
+	color: lighten(color.$orange-high, 10%)
 
 @keyframes fade
 	from
