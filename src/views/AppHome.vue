@@ -1,5 +1,5 @@
 <template>
-	<article class="resume" id="sobre">
+	<article class="resume">
 		<div class="resume__context">
 			<p>
 				Olá! Eu sou Andre Menezes e atuo como desenvolvedor frontend desde 2021!
@@ -7,7 +7,6 @@
 			<p>
 				Sou tecnólogo em Informática para Negócios e busco me especializar cada vez mais no desenvolvimento frontend!
 			</p>
-
 			<p>
 				Meu foco principal é o desenvolvimento frontend, porém tenho apreço por tecnologias mobile e UX/UI Design, além de
 				conhecimentos em backend!
@@ -19,8 +18,8 @@
 
 		</div>
 		<div class="resume__image">
-			<img align="right" height="500"
-				src="https://octocat-generator-assets.githubusercontent.com/my-octocat-1621982977678.png" alt="octocat" />
+			<img height="500" src="https://octocat-generator-assets.githubusercontent.com/my-octocat-1621982977678.png"
+				alt="octocat" />
 		</div>
 	</article>
 </template>
@@ -30,16 +29,11 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .resume
-	background-image: linear-gradient(45deg, rgba(25,25,25,1) 25%, rgba(25,25,25,.9) 50%, rgba(25,25,25,.6) 80%, rgba(25,25,25,.3) 100%), url('../assets/bg_img.jpg')
-	background-size: cover
-	background-repeat: no-repeat
-	background-position-y: center
 	display: grid
 	grid-template-columns: 1fr 1fr
-	filter: blur(10%)
-	height: calc(100vh - 3.125rem)
+	min-height: calc(100vh - 3.125rem)
 	width: 100%
 
 	&__context

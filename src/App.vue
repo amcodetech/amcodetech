@@ -20,8 +20,4 @@ export default {
 
 <style lang="sass">
 @import './styles/default.sass'
-
-.content
-  position: absolute
-  margin-top: 3rem
 </style>
